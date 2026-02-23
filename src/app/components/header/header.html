@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/home"> Tarea Semana 7 </a>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navMenu"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active"> Inicio </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/eventos" routerLinkActive="active"> Eventos </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/facturas" routerLinkActive="active"> Facturas </a>
+        </li>
+      </ul>
+
+      @if (auth.estaLogueado()) {
+        <div class="d-flex align-items-center gap-3">
+          <span class="text-white-50 small">
+            Bienvenido, <span class="text-white fw-semibold">{{ auth.obtenerNombre() }}</span>
+          </span>
+          <button class="btn btn-outline-light btn-sm" (click)="cerrarSesion()">
+            Cerrar Sesión
+          </button>
+        </div>
+      }
+    </div>
+  </div>
+</nav>
